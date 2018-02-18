@@ -69,12 +69,5 @@ function verificar()
 			alert("te faltó");
 			}
 		}
-
-	if(contadorIntentos>10)
-	{
-		alert("perdiste");
-		return;
-	}
-
 	}
 }
