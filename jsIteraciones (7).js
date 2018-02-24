@@ -13,6 +13,12 @@ function Mostrar()
 		numero=prompt("ingrese un numero");
 		numero=parseInt(numero);
 
+		while(isNaN(numero))
+		{
+			numero=prompt("ingrese un numero");
+			numero=parseInt(numero);
+		}
+
 		acumulador=acumulador+numero;
 
 		respuesta=prompt("para continuar, escriba si");
