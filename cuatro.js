@@ -1,28 +1,33 @@
 function Mostrar()
+
+//pedir dos numeros, si son iguales concatenar, si en primero es mayor multiplicar, si el segundo es mayor restar.
 {
-	var numeroUno;
-	var numeroDos;
-	var numero1;
-	var numero2;
+	var primerNumero;
+	var segundoNumero;
+	var cálculo;
 
-	numeroUno=prompt("primer numero");
-	numeroDos=prompt("segundo numero");
+	primerNumero=prompt("ingrese primer numero");
+	segundoNumero=prompt("ingrese segundo numero");
 
-	numero1=parseInt(numeroUno);
-	numero2=parseInt(numeroDos);
-
-	if(numero1==numero2)
+	if(primerNumero==segundoNumero)
 	{
-		document.write(numero1*numero2);
+		cálculo=primerNumero+segundoNumero;
 	}else
-	{
-		if(numero1>numero2)
 		{
-			document.write(numero1-numero2);
-		}else
-		{
-			document.write(numero1+numero2);
+			primerNumero=parseInt(primerNumero);
+			segundoNumero=parseInt(segundoNumero);
+			
+			if(primerNumero>segundoNumero)
+			{
+				cálculo=primerNumero*segundoNumero;
+			}else
+				{
+					if(primerNumero<segundoNumero)
+					{
+						cálculo=primerNumero-segundoNumero;
+					}
+				}
+		
 		}
-	}
-
+	document.write(cálculo);
 }

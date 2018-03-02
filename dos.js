@@ -1,14 +1,18 @@
 function Mostrar()
+
+	//ingresa un porcentaje de descuento y el importe mostrar el importe que se debe pagar
 {
-	var importe;
-	var numimporte;
-	var importefinal;
+ 	var importe;
+ 	var descuento;
+	var importeFinal;
 
-	var importe=prompt("ingrese importe");
+ 	importe=prompt("ingrese importe");
+ 	importe=parseInt(importe);
 
-	numimporte= parseInt(importe);
+ 	descuento=prompt("ingrese descuento");
+ 	descuento=parseInt(descuento);
 
-	importefinal=(numimporte/100*21)+numimporte;
+ 	importeFinal=importe-(importe/100*descuento);
 
-	document.getElementById('importeFinal').value=importefinal;
+ 	document.getElementById('importeFinal').value=importeFinal;
 }
