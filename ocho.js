@@ -13,10 +13,14 @@ function Mostrar()
 	var nombreDelMasPesado;
 	var nombreDelAnimalDelHabitatMasFrio;
 	var cantidadDeAnimales=0;
+	var acumuladorDePeso=0;
+	var promedioPeso;
+	var temperaturaMaxima;
+	var temperaturaMinima;
 
 	while(confirm("cancelar para dejar de ingresar datos"))
 	{
-		cantidadDeAnimales++
+		cantidadDeAnimales++;
 		nombreDelAnimal=prompt("ingrese nombre");
 		pesoDelAnimal2=prompt("ingrese peso");
 		temperaturaDelHabitat2=prompt("ingrese temperatura");
@@ -24,17 +28,21 @@ function Mostrar()
 		pesoDelAnimal2=parseInt(pesoDelAnimal2);
 		temperaturaDelHabitat2=parseInt(temperaturaDelHabitat2);
 
-		while(isNaN(pesoDelAnimal2) && pesoDelAnimal2>0)
+		while(isNaN(pesoDelAnimal2) || pesoDelAnimal2<0)
 		{
 			pesoDelAnimal2=prompt("ingrese peso");
 			pesoDelAnimal2=parseInt(pesoDelAnimal2);
 		}
 
-		while(isNaN(temperaturaDelHabitat2) && temperaturaDelHabitat<41 && temperaturaDelHabitat> -41)
+		while(isNaN(temperaturaDelHabitat2)||temperaturaDelHabitat2>41||temperaturaDelHabitat2<-41)
+		
 		{
 			temperaturaDelHabitat2=prompt("ingrese un temperatura");
 			temperaturaDelHabitat2=parseInt(temperaturaDelHabitat2);
 		}
+
+		
+	acumuladorDePeso=acumuladorDePeso+pesoDelAnimal2;
 
 	if(contador==0)
 	{
@@ -48,29 +56,38 @@ function Mostrar()
 		{
 			if(pesoDelAnimal<pesoDelAnimal2)
 			{
-				pesoDelAnimal=pesoDelAnimal2
+				pesoDelAnimal=pesoDelAnimal2;
 				nombreDelMasPesado=nombreDelAnimal;
 			}
 			
 			if (temperaturaDelHabitat>temperaturaDelHabitat2)
 			{
-				temperaturaDelHabitat=temperaturaDelHabitat2
+				temperaturaDelHabitat=temperaturaDelHabitat2;
 				nombreDelAnimalDelHabitatMasFrio=nombreDelAnimal;
+				temperaturaMinima=temperaturaDelHabitat2;
 
-				if(temperaturaDelHabitat%2==0)
+			}else
+			{
+				if(temperaturaDelHabitat<temperaturaDelHabitat2)
 				{
-					contandorTemperaturasPares++
+					temperaturaMaxima=temperaturaDelHabitat2;
 				}
 			}		
-
-
+			if(temperaturaDelHabitat%2==0)
+				{
+					contandorTemperaturasPares++;
+				}
 		}
 	
 	}
 
-document.write(nombreDelMasPesado);
-document.write(nombreDelAnimalDelHabitatMasFrio);
-document.write(contandorTemperaturasPares);
-document.write()
+	promedioPeso=acumuladorDePeso/cantidadDeAnimales;
+
+	document.write("nombre mas pesado  "+nombreDelMasPesado);
+	document.write("<br>"+"nombre mas frio "+nombreDelAnimalDelHabitatMasFrio);
+	document.write("<br>"+"temperaturas pares "+contandorTemperaturasPares);
+	document.write("<br>"+"peso promedio "+promedioPeso);
+	document.write("<br>"+"temperaturaMaxima "+temperaturaMaxima);
+	document.write("<br>"+"temperaturaMinima "+temperaturaMinima);
 
 }
